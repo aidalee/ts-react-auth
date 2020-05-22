@@ -6,8 +6,12 @@ interface IaxiosParams {
   params?: object;
   method?: string;
 }
-export default function ajax(url, reqConfig = {}) {
-  const { data = {}, params = {}, method = "GET" } = reqConfig;
+export default function ajax(url: string, reqConfig: any = {}) {
+  const {
+    data = {},
+    params = {},
+    method = "GET",
+  }: { data?: {}; params?: {}; method?: string } = reqConfig;
   return new Promise((resolve, reject) => {
     let promise;
     promise = axios.request({
