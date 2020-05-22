@@ -1,0 +1,24 @@
+.login-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 100px;
+  //   align-items: center;
+  .login-con {
+    h2 {
+      text-align: center;
+    }
+  }
+  .login-form {
+    max-width: 300px;
+  }
+  .login-form-forgot {
+    float: right;
+  }
+  .ant-col-rtl .login-form-forgot {
+    float: left;
+  }
+  .login-form-button {
+    width: 100%;
+  }
+}
