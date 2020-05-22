@@ -2,17 +2,16 @@ import React from "react";
 import { Form, Input, Button, Checkbox } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.scss";
-interface FormData {
+interface LoginData {
   username: string;
   password: string;
-  remember: boolean;
 }
 class Login extends React.Component {
   //   onFinish() {}
 
   render() {
-    const onFinish = (values: FormData) => {
-      console.log(values);
+    const onFinish = (values: any) => {
+      //
     };
     return (
       <div className="login-wrapper">
