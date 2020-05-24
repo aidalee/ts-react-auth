@@ -1,17 +1,12 @@
 import axios from "axios";
+import { Method } from "axios/index";
 import { message } from "antd";
-interface IaxiosParams {
-  url: string;
-  data?: object;
-  params?: object;
-  method?: string;
-}
 export default function ajax(url: string, reqConfig: any = {}) {
   const {
     data = {},
     params = {},
     method = "GET",
-  }: { data?: {}; params?: {}; method?: string } = reqConfig;
+  }: { data?: {}; params?: {}; method?: Method } = reqConfig;
   return new Promise((resolve, reject) => {
     let promise;
     promise = axios.request({
@@ -21,10 +16,10 @@ export default function ajax(url: string, reqConfig: any = {}) {
       params,
     });
     promise
-      .then((res) => {
+      .then((res: any) => {
         resolve(res.data);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         if (error.response.status === 401) {
           //   setToken("");
           //   removeStore("userInfo");
