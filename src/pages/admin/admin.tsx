@@ -1,18 +1,41 @@
 import React from "react";
-import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
-import { getStore, removeStore } from "../../lib/utils";
-import { Button } from "antd";
-class Admin extends React.Component {
+import { Route, Switch, Redirect } from "react-router-dom";
+import { removeStore } from "../../lib/utils";
+import { Button, Layout } from "antd";
+import MSP from "../dataCenter/msp";
+import RESOURCE from "../dataCenter/resource";
+import Demo from "../demo/demo";
+//定义一个接口规范state的类型
+export interface State {
+  isLogin: boolean;
+}
+const { Header, Footer, Sider, Content } = Layout;
+export default class Admin extends React.Component<{}, State> {
+  readonly state = {
+    isLogin: true,
+  };
   handleClick = () => {
     removeStore("token");
+    this.setState({
+      isLogin: false,
+    });
   };
   render() {
-    const token: string = getStore("token");
-    if (!token) {
+    // const token: string = getStore("token");
+    if (!this.state.isLogin) {
       return <Redirect to="/login" />;
     }
-    return <Button onClick={() => this.handleClick}>admin</Button>;
+    return (
+      <Layout>
+        <Content>
+          <Switch>
+            <Route path="/dataCenter/msp" component={MSP} />
+            <Route path="/dataCenter/resource" component={RESOURCE} />
+            <Route path="/demo" component={Demo} />
+            <Redirect to="/dataCenter/msp" />
+          </Switch>
+        </Content>
+      </Layout>
+    );
   }
 }
-
-export default Admin;
