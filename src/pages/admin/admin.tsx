@@ -5,6 +5,8 @@ import { Button, Layout } from "antd";
 import MSP from "../dataCenter/msp";
 import RESOURCE from "../dataCenter/resource";
 import Demo from "../demo/demo";
+import HOC from "../hoc/hoc";
+import RenderProps from "../renderProps/renderProps";
 //定义一个接口规范state的类型
 export interface State {
   isLogin: boolean;
@@ -32,6 +34,8 @@ export default class Admin extends React.Component<{}, State> {
             <Route path="/dataCenter/msp" component={MSP} />
             <Route path="/dataCenter/resource" component={RESOURCE} />
             <Route path="/demo" component={Demo} />
+            <Route path="/hoc" component={HOC} />
+            <Route path="/renderProps" component={RenderProps} />
             <Redirect to="/dataCenter/msp" />
           </Switch>
         </Content>
