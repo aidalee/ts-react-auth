@@ -38,6 +38,7 @@ const App = (props: any) => {
     <div style={{ height: "500px" }}>
       <p>{props.a}</p>
       <Mouse
+        // 这里的render是一个函数组件
         render={({ x, y }: BaseState) => (
           <h1>
             the mouse position is {x},{y}
