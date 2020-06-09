@@ -23,7 +23,6 @@ export default class Admin extends React.Component<{}, State> {
     });
   };
   render() {
-    // const token: string = getStore("token");
     if (!this.state.isLogin) {
       return <Redirect to="/login" />;
     }

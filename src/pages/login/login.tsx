@@ -5,10 +5,11 @@ import { UserOutlined, LockOutlined } from "@ant-design/icons";
 import "./login.scss";
 import { reqLogin } from "../../api/user";
 import { setStore, getStore } from "../../lib/utils";
-export interface LoginData {
-  account: string;
-  password: string;
-}
+import { LoginData } from "../../api/api_types";
+// export interface LoginData {
+//   account: string;
+//   password: string;
+// }
 //定义一个接口规范state的类型
 export interface State {
   isLogin: boolean;

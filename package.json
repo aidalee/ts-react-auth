@@ -2,7 +2,7 @@
   "name": "ts-react-auth",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://101.91.119.201:3000",
+  "proxy": "http://101.91.122.204:51005",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",

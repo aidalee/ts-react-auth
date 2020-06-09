@@ -1,6 +1,7 @@
-import axios from "axios";
+import HttpRequest from "./axios";
 import { Method } from "axios/index";
 import { message } from "antd";
+const axios = new HttpRequest();
 export default function ajax(url: string, reqConfig: any = {}) {
   const {
     data = {},
