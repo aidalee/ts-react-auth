@@ -4,6 +4,7 @@ import zhCN from "antd/es/locale/zh_CN";
 import { reqGetResourceMagList } from "../../api/index";
 import { ResourceMagListParams } from "../../api/api_types";
 import SearchForm from "../../components/search-form";
+import { nodeSearch } from "../../config/nodeSearch";
 export type TablePaginationPosition =
   | "topLeft"
   | "topCenter"
@@ -12,6 +13,7 @@ export type TablePaginationPosition =
   | "bottomCenter"
   | "bottomRight";
 class RESOURCE extends React.Component {
+  form: any;
   state = {
     resourceList: [],
     total: 0,
@@ -84,7 +86,23 @@ class RESOURCE extends React.Component {
       showModal: true,
     });
   }
-  HandleSearch() {}
+  hideSearchModal() {
+    this.setState({
+      showModal: false,
+    });
+  }
+  HandleSearch = (form: any) => {
+    console.log(form);
+    form
+      .validateFields()
+      .then((values: any) => {
+        console.log(values);
+        form.resetFields();
+      })
+      .catch((info: any) => {
+        console.log("Validate Failed:", info);
+      });
+  };
   //  执行异步任务: 发异步ajax请求
   componentDidMount() {
     // 获取资源列表
@@ -110,16 +128,21 @@ class RESOURCE extends React.Component {
         <Button type="primary" onClick={this.showSearchModal.bind(this)}>
           查询
         </Button>
-        <Modal
+        {/* <Modal
           title="查询"
           visible={showModal}
           onOk={this.HandleSearch}
           onCancel={() => {
             this.setState({ showModal: false });
           }}
-        >
-          <SearchForm></SearchForm>
-        </Modal>
+        > */}
+        <SearchForm
+          onSearch={this.HandleSearch}
+          showModal={showModal}
+          hideModal={this.hideSearchModal.bind(this)}
+          nodeSearch={nodeSearch}
+        ></SearchForm>
+        {/* </Modal> */}
         <ConfigProvider locale={locale}>
           <Table
             rowKey="_id"
