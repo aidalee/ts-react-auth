@@ -59,7 +59,7 @@ const WithMouse = (Component: any) => {
   }
   return withMouseComponent;
 };
-const App = (props: BaseProps) => {
+const App: React.FC<BaseProps> = (props) => {
   const a = props.a;
   const { x, y } = props.mouse;
   return (

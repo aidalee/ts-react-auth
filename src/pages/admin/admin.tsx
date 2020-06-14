@@ -7,6 +7,7 @@ import RESOURCE from "../dataCenter/resource";
 import Demo from "../demo/demo";
 import HOC from "../hoc/hoc";
 import RenderProps from "../renderProps/renderProps";
+import Hook from "../hook/hook";
 //定义一个接口规范state的类型
 export interface State {
   isLogin: boolean;
@@ -35,6 +36,7 @@ export default class Admin extends React.Component<{}, State> {
             <Route path="/demo" component={Demo} />
             <Route path="/hoc" component={HOC} />
             <Route path="/renderProps" component={RenderProps} />
+            <Route path="/hook" component={Hook} />
             <Redirect to="/dataCenter/msp" />
           </Switch>
         </Content>
