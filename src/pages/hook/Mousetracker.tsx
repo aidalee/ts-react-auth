@@ -6,7 +6,7 @@ const MouseTracker: React.FC = () => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
     document.addEventListener("click", updateMouse);
-    // useEffect源码可以看到可以返回函数,在这里清除effect
+    // useEffect源码中可以看到可以返回函数,在这里清除effect
     return () => {
       document.removeEventListener("click", updateMouse);
     };
@@ -18,6 +18,7 @@ const MouseTracker: React.FC = () => {
   );
 };
 export default MouseTracker;
-// 每次render后都重新执行effect比较消耗性能,所以可以有针对性的控制useEffect的执行.
+// 第二个参数不传，每次render后都重新执行effect比较消耗性能,所以可以有针对性的控制useEffect的执行.
 // useEffect()第二个参数传一个[]代表effect不依赖于props和state中的任意值,所以永远都不会重复执行,只会在挂载和卸载时各执行一次effect
 // 如果传了useState中定义的属性,则会在所传属性发生改变时才会执行effect
+// 一个函数组件可以有多个useEffect
