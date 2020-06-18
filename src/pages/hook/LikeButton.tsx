@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import useMousePosition from "./customHooks/useMousePosition";
 // useState使得在函数组件添加state成为可能
 // const LikeButton: React.FC = () => {
 //   const [like, setLike] = useState(0);
@@ -34,8 +35,10 @@ const LikeButton: React.FC = () => {
   // 或者每个状态单独用一个useState:
   const [like, setLike] = useState(0);
   const [on, setOn] = useState(true);
+  const positions = useMousePosition([like]);
   return (
     <>
+      {positions.x}
       <button
         onClick={() => {
           setLike(like + 1);

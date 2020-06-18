@@ -24,6 +24,7 @@ export default class Admin extends React.Component<{}, State> {
     });
   };
   render() {
+    // debugger;
     if (!this.state.isLogin) {
       return <Redirect to="/login" />;
     }
