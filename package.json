@@ -1,7 +1,7 @@
 {
   "name": "ts-react-auth",
-  "version": "0.1.0",
-  "private": true,
+  "version": "1.0.1",
+  "private": false,
   "proxy": "http://101.91.122.204:51005",
   "dependencies": {
     "@babel/core": "7.9.0",
