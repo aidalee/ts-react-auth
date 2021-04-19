@@ -4,11 +4,11 @@ import SimpleEffect from "./SimpleEffect";
 import MouseTracker from "./Mousetracker";
 import useMousePosition from "./customHooks/useMousePosition";
 const Hook: React.FC = () => {
-  const positions = useMousePosition();
+  // const positions = useMousePosition([like]);
   return (
     <>
       <p>
-        X:{positions.x},Y:{positions.y}
+        {/* X:{positions.x},Y:{positions.y} */}
       </p>
       <LikeButton></LikeButton>
       <SimpleEffect></SimpleEffect>
