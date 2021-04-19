@@ -1,7 +1,6 @@
 {
-  "name": "ts-react-auth-aidalee",
-  "version": "1.0.1",
-  "private": false,
+  "name": "ts-react-auth-aidalee-121",
+  "version": "1.0.2",
   "proxy": "http://101.91.122.204:51005",
   "dependencies": {
     "@babel/core": "7.9.0",
